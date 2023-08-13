@@ -12,11 +12,14 @@ export async function prayerDataObj(address, setPrayerData) {
     }
 }
 
-export function usePrayerData(setPrayerData) {
+export function usePrayerData() {
     const [prayerData, setPrayerData] = useState({});
     const [address, setAddress] = useState('');
-    // I will use useEffect here and when the button 
-    useEffect(() => {}, [])
+    useEffect(() => {
+        if(address !== '') {
+            prayerDataObj(address, setPrayerData)
+        }
+    }, [address])
     
     return [prayerData, setAddress];
 }
