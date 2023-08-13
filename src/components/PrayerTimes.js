@@ -1,17 +1,15 @@
-import React, { useState, useEffect } from "react";
 import { TimesContainer } from "./TimesContainer";
-import { prayerDataObj } from "../utils/promise";
+import { usePrayerData } from "../utils/promise";
 import { InputForms } from "./InputForms";
-export function PrayerTimes() {    
-    const [prayerData, setAddress] = useState({});
+export function PrayerTimes() {
+	const [prayerData, setAddress] = usePrayerData();
 
-    function submitHandler(address) {
-        prayerDataObj(address, setAddress)
-    }
-    return (
-        <div>
-            <InputForms submitHandler={submitHandler} />
-            <TimesContainer prayerData={prayerData} />
-        </div>
-    )
+	return (
+		<div>
+			<InputForms
+				setAddress={setAddress}
+			/>
+			<TimesContainer prayerData={prayerData} />
+		</div>
+	)
 }

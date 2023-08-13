@@ -1,6 +1,4 @@
-import React, { useState } from "react"
-export function InputForms({ submitHandler }) {
-    const [address, setAddress] = useState('')
+export function InputForms({ setAddress, address, searchHandler }) {
     return (
         <div>
             <h1>
@@ -12,8 +10,12 @@ export function InputForms({ submitHandler }) {
                     value={address}
                     onChange={(event) => setAddress(event.target.value)}
                 />
-                <button onClick={() => submitHandler(address)}>Search</button>
             </div>
+            <button
+                onClick={searchHandler}
+            >
+                Search 
+            </button>
         </div>
     )
 }
