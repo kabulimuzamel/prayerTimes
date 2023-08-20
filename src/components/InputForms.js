@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export function InputForms({ setAddress }) {
+export function InputForms({ searchHandler }) {
     const [address, setInsideFormChangeAddress] = useState() 
 
     
@@ -18,7 +18,7 @@ export function InputForms({ setAddress }) {
                 />
             </div>
             <button
-                onClick={() => setAddress(address)}
+                onClick={(e) => searchHandler(e, address)}
             >
                 Search 
             </button>

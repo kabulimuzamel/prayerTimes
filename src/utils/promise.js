@@ -14,12 +14,17 @@ export async function prayerDataObj(address, setPrayerData) {
 
 export function usePrayerData() {
     const [prayerData, setPrayerData] = useState({});
-    const [address, setAddress] = useState('');
-    useEffect(() => {
-        if(address !== '') {
-            prayerDataObj(address, setPrayerData)
-        }
-    }, [address])
-    
-    return [prayerData, setAddress];
+    // const [address, setAddress] = useState('');
+    // useEffect(() => {
+    //     if(address !== '') {
+    //         prayerDataObj(address, setPrayerData)
+    //     }
+    // }, [address])
+
+    const searchHandler = (e, address) => {
+        e.preventDefault()
+        prayerDataObj(address, setPrayerData)
+        
+    }
+    return [prayerData, searchHandler];
 }
